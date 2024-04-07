@@ -1,9 +1,12 @@
 from functions import *
 
 #Endereços de origem e destino, priorizar endereços completos com CEP
-endereco_A = 'R. Francisco Custodio de Andrade, 127'
+endereco_A = 'R. Deusdete Coelho, 309 - Paraviana, 69307-273'
 endereco_B = 'Av. Cap. Ene Garcês, 2413 - Bloco V - Aeroporto'
 cidade = "Boa vista"
+
+print(f"Endereço de origem: {endereco_A}")
+print(f"Endereço de destino: {endereco_B}")
 
 # Inicialização do cliente da API do Google Maps
 gmaps = inicializar_cliente_google_maps()
@@ -13,8 +16,8 @@ coord_A = converter_endereco(gmaps, endereco_A)
 coord_B = converter_endereco(gmaps, endereco_B)
 
 #Checar coordenas dos endereços(Descomentar)
-# print(f"Coordenada Origem: {coord_A}")
-# print(f"Coordenada Destino: {coord_B}")
+print(f"Coordenada Origem: {coord_A}")
+print(f"Coordenada Destino: {coord_B}")
 
 # Construção do Grafo de Rede de Ruas da Cidade
 G = construir_grafo_de_ruas(cidade)
@@ -23,9 +26,9 @@ G = construir_grafo_de_ruas(cidade)
 origem = encontrar_nos_mais_proximos(G, coord_A['lat'], coord_A['lng'])
 destino = encontrar_nos_mais_proximos(G, coord_B['lat'], coord_B['lng'])
 
-#Checar nó de origem e nó de destino(descomentar)
-# print("Nó de origem:", origem)
-# print("Nó de destino:", destino)
+#Checar nó mais proximo da origem e do nó de destino(descomentar)
+print("Nó mais próximo da origem:", origem)
+print("Nó mais próximo do destino:", destino)
 
 #checar todos nós no grafo
 #print("Nós no grafo:", G.nodes())
@@ -34,7 +37,7 @@ destino = encontrar_nos_mais_proximos(G, coord_B['lat'], coord_B['lng'])
 caminho_mais_curto = encontrar_caminho_mais_curto(G, origem, destino)
 
 #Checar nós do caminho mais curto encontado(descomentar)
-#print("Caminho mais curto encontrado:", caminho_mais_curto)
+print("Caminho mais curto encontrado:", caminho_mais_curto)
 
 # Plotar o Grafo com o menor caminho destacado
 plotar_grafo_com_rota(G, caminho_mais_curto, coord_A, coord_B)
