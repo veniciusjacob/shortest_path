@@ -47,18 +47,29 @@ gmaps = initialize_google_maps_client()
 coord_A = geocode_address(gmaps, endereco_A)
 coord_B = geocode_address(gmaps, endereco_B)
 
+#Checar coordenas dos endereços(Descomentar)
+# print(f"Coordenada Origem: {coord_A}")
+# print(f"Coordenada Destino: {coord_B}")
+
 # Construção do Grafo de Rede de Ruas da Cidade
 G = build_street_network_graph(cidade)
 
-# Verificar se os nós de origem e destino estão corretamente definidos
 origem = find_nearest_nodes(G, coord_A['lat'], coord_A['lng'])
 destino = find_nearest_nodes(G, coord_B['lat'], coord_B['lng'])
-print("Nó de origem:", origem)
-print("Nó de destino:", destino)
+
+#Checar nó de origem e nó de destino(descomentar)
+# print("Nó de origem:", origem)
+# print("Nó de destino:", destino)
+
+#checar todos nós no grafo(Descomentar)
+#print("Nós no grafo:", G.nodes())
 
 # Calculando o caminho mais curto usando o algoritmo A*
 caminho_mais_curto = find_shortest_path(G, source=origem, target=destino)
 print("Caminho mais curto encontrado:", caminho_mais_curto)
+
+#Checar nós do caminho mais curto encontado(descomentar)
+#print("Caminho mais curto encontrado:", caminho_mais_curto)
 
 # Visualização do Grafo com o menor caminho destacado
 fig, ax = ox.plot_graph_route(G, caminho_mais_curto, route_color='b', show=False, close=False)
