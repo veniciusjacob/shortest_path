@@ -4,7 +4,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def initialize_google_maps_client():
-    gmaps = googlemaps.Client(key='api_key')
+    gmaps = googlemaps.Client(key='API_KEY',)
     return gmaps
 
 def geocode_address(gmaps, address):
@@ -16,24 +16,16 @@ def build_street_network_graph(city):
     G = ox.graph_from_place(city, network_type='drive')
     return G
 
-def find_nearest_nodes1(graph, latitude, longitude):
-    nearest_node = ox.distance.nearest_nodes(graph, latitude, longitude)
-    print("Nó mais próximo:", nearest_node)
-    return nearest_node
-
-
 def find_nearest_nodes(graph, latitude, longitude):
     nearest_node = ox.distance.nearest_nodes(graph, longitude, latitude)
-    print("Nó mais próximo:", nearest_node)
+
+    #checa nó mais proximo da origem(descomentar)
+    #print("Nó mais próximo: ", nearest_node)
     return nearest_node
-
-
 
 def find_shortest_path(graph, source, target):
     shortest_path = nx.astar_path(graph, source=source, target=target, weight='length')
     return shortest_path
-
-
 
 # Endereços de origem e destino
 endereco_A = 'Rua Francisco Custódio de Andrade, 127'
@@ -66,7 +58,6 @@ destino = find_nearest_nodes(G, coord_B['lat'], coord_B['lng'])
 
 # Calculando o caminho mais curto usando o algoritmo A*
 caminho_mais_curto = find_shortest_path(G, source=origem, target=destino)
-print("Caminho mais curto encontrado:", caminho_mais_curto)
 
 #Checar nós do caminho mais curto encontado(descomentar)
 #print("Caminho mais curto encontrado:", caminho_mais_curto)

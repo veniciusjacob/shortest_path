@@ -1,10 +1,8 @@
 from functions import *
 
-
-# Endereços de origem e destino
-#priorizar endereços completos com CEP
+#Endereços de origem e destino, priorizar endereços completos com CEP
 endereco_A = 'R. Francisco Custodio de Andrade, 127'
-endereco_B = 'Rua Espirito Santo, 178 - Dos Estados, 69305-600'
+endereco_B = 'Av. Cap. Ene Garcês, 2413 - Bloco V - Aeroporto'
 cidade = "Boa vista"
 
 # Inicialização do cliente da API do Google Maps
@@ -40,6 +38,3 @@ caminho_mais_curto = encontrar_caminho_mais_curto(G, origem, destino)
 
 # Plotar o Grafo com o menor caminho destacado
 plotar_grafo_com_rota(G, caminho_mais_curto, coord_A, coord_B)
-
-
-

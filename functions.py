@@ -4,7 +4,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def inicializar_cliente_google_maps():
-    gmaps = googlemaps.Client(key='AIzaSyDzqv4Djq5ytLc0AF69LDGUyEr__UK71Os')
+    gmaps = googlemaps.Client(key='API_KEY',)
     return gmaps
 
 def geocodificar_endereco(gmaps, endereco):
