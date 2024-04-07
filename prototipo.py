@@ -4,7 +4,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 def initialize_google_maps_client():
-    gmaps = googlemaps.Client(key='AIzaSyDzqv4Djq5ytLc0AF69LDGUyEr__UK71Os')
+    gmaps = googlemaps.Client(key='api_key')
     return gmaps
 
 def geocode_address(gmaps, address):
