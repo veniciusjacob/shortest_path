@@ -9,8 +9,8 @@ cidade = "Boa vista"
 gmaps = inicializar_cliente_google_maps()
 
 # Geocodificação dos endereços para obter as coordenadas
-coord_A = geocodificar_endereco(gmaps, endereco_A)
-coord_B = geocodificar_endereco(gmaps, endereco_B)
+coord_A = converter_endereco(gmaps, endereco_A)
+coord_B = converter_endereco(gmaps, endereco_B)
 
 #Checar coordenas dos endereços(Descomentar)
 # print(f"Coordenada Origem: {coord_A}")
@@ -19,7 +19,7 @@ coord_B = geocodificar_endereco(gmaps, endereco_B)
 # Construção do Grafo de Rede de Ruas da Cidade
 G = construir_grafo_de_ruas(cidade)
 
-# Verificar se os nós de origem e destino estão corretamente definidos
+#encontra o nó mais próximo da origem e o nó mais próximodo destino
 origem = encontrar_nos_mais_proximos(G, coord_A['lat'], coord_A['lng'])
 destino = encontrar_nos_mais_proximos(G, coord_B['lat'], coord_B['lng'])
 
