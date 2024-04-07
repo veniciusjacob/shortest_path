@@ -1,2 +1,2 @@
 # shortest_path
-Aplicação usando Algoritmo A* para encontrar o menor caminho de um ponto A até o ponto B.
+Application using Algorithm A* to find the shortest path from point A to point B.
