@@ -1,6 +1,6 @@
 from functions import *
 
-#Endereços de origem e destino, priorizar endereços completos com CEP
+#Endereços de origem e destino, priorizar endereços completos com CEP.
 endereco_A = 'R. Deusdete Coelho, 309 - Paraviana, 69307-273'
 endereco_B = 'Av. Cap. Ene Garcês, 2413 - Bloco V - Aeroporto'
 cidade = "Boa vista"

@@ -3,9 +3,9 @@ import osmnx as ox
 import networkx as nx
 import matplotlib.pyplot as plt
 
-#incialização da API
+#incialização da API.
 def inicializar_cliente_google_maps():
-    gmaps = googlemaps.Client(key='API_KEY',)
+    gmaps = googlemaps.Client(key='AIzaSyDzqv4Djq5ytLc0AF69LDGUyEr__UK71Os',)
     return gmaps
 
 # essa função recebe um endereço e um cliente do Google Maps,
