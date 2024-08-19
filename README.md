@@ -24,6 +24,7 @@ You can install the dependencies using the following command:
 
 ```bash
 pip install googlemaps osmnx networkx matplotlib
+```
 
 ## How to Use
 
