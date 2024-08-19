@@ -1,43 +1,43 @@
 from functions import *
 
-#Endereços de origem e destino, priorizar endereços completos com CEP.
-endereco_A = 'R. Deusdete Coelho, 309 - Paraviana, 69307-273'
-endereco_B = 'Av. Cap. Ene Garcês, 2413 - Bloco V - Aeroporto'
-cidade = "Boa vista"
+# Origin and destination addresses, prefer full addresses with ZIP codes.
+address_A = 'R. Deusdete Coelho, 309 - Paraviana, 69307-273'
+address_B = 'Av. Cap. Ene Garcês, 2413 - Bloco V - Aeroporto'
+city = "Boa Vista"
 
-print(f"Endereço de origem: {endereco_A}")
-print(f"Endereço de destino: {endereco_B}")
+print(f"Origin address: {address_A}")
+print(f"Destination address: {address_B}")
 
-# Inicialização do cliente da API do Google Maps
-gmaps = inicializar_cliente_google_maps()
+# Initialize the Google Maps API client
+gmaps = initialize_google_maps_client()
 
-# Geocodificação dos endereços para obter as coordenadas
-coord_A = converter_endereco(gmaps, endereco_A)
-coord_B = converter_endereco(gmaps, endereco_B)
+# Geocoding the addresses to obtain coordinates
+coord_A = geocode_address(gmaps, address_A)
+coord_B = geocode_address(gmaps, address_B)
 
-#Checar coordenas dos endereços(Descomentar)
-print(f"Coordenada Origem: {coord_A}")
-print(f"Coordenada Destino: {coord_B}")
+# Check coordinates of the addresses (Uncomment if needed)
+print(f"Origin Coordinates: {coord_A}")
+print(f"Destination Coordinates: {coord_B}")
 
-# Construção do Grafo de Rede de Ruas da Cidade
-G = construir_grafo_de_ruas(cidade)
+# Build the street network graph of the city
+G = build_street_graph(city)
 
-#encontra o nó mais próximo da origem e o nó mais próximodo destino
-origem = encontrar_nos_mais_proximos(G, coord_A['lat'], coord_A['lng'])
-destino = encontrar_nos_mais_proximos(G, coord_B['lat'], coord_B['lng'])
+# Find the nearest node to the origin and destination
+origin = find_nearest_node(G, coord_A['lat'], coord_A['lng'])
+destination = find_nearest_node(G, coord_B['lat'], coord_B['lng'])
 
-#Checar nó mais proximo da origem e do nó de destino(descomentar)
-print("Nó mais próximo da origem:", origem)
-print("Nó mais próximo do destino:", destino)
+# Check the nearest node to the origin and destination (Uncomment if needed)
+print("Nearest node to origin:", origin)
+print("Nearest node to destination:", destination)
 
-#checar todos nós no grafo
-#print("Nós no grafo:", G.nodes())
+# Check all nodes in the graph (Uncomment if needed)
+# print("Nodes in the graph:", G.nodes())
 
-# Calculando o caminho mais curto usando o algoritmo A*
-caminho_mais_curto = encontrar_caminho_mais_curto(G, origem, destino)
+# Calculate the shortest path using the A* algorithm
+shortest_path = find_shortest_path(G, origin, destination)
 
-#Checar nós do caminho mais curto encontado(descomentar)
-print("Caminho mais curto encontrado:", caminho_mais_curto)
+# Check nodes of the shortest path found (Uncomment if needed)
+print("Shortest path found:", shortest_path)
 
-# Plotar o Grafo com o menor caminho destacado
-plotar_grafo_com_rota(G, caminho_mais_curto, coord_A, coord_B)
+# Plot the graph with the shortest path highlighted
+plot_graph_with_route(G, shortest_path, coord_A, coord_B)
