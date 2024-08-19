@@ -34,7 +34,7 @@ pip install googlemaps osmnx networkx matplotlib
 - Generate an API key and replace API_KEY in the code with your key.
 
 # 2. Set the Origin and Destination Addresses:
-- In the main script, enter the desired addresses for `endereco_A` and `endereco_B`.
+- In the main script, enter the desired addresses for `address_A` and `address_B`.
 
 # 3. Run the Script:
 - The script will initialize the Google Maps client, convert the addresses to coordinates, build the street network graph, calculate the shortest path, and plot it on a graph.
